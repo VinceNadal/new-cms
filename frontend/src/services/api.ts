@@ -5,6 +5,9 @@ import { Contact } from "../interfaces/Contact";
 // Create an axios configuration
 const api = axios.create({
   baseURL: 'http://localhost:5000',
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 // Get contacts from the server asynchronously
