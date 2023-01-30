@@ -4,7 +4,7 @@ import { Contact } from "../interfaces/Contact";
 
 // Create an axios configuration
 const api = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "http://localhost:5000/api",
   headers: {
     "Content-Type": "application/json",
   },
@@ -19,6 +19,7 @@ export const getContacts = async (): Promise<Contact[]> => {
 // Add a new contact to the server asynchronously
 export const addContact = async (contact: CreateContact): Promise<Contact> => {
   const response = await api.post("/contacts", contact);
+  console.log(response.data);
   return response.data;
 };
 

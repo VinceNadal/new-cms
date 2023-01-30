@@ -1,6 +1,12 @@
 import { useState } from "react";
+import { Contact } from "../interfaces/Contact";
+import { addContact, getContacts } from "../services/api";
 
-export default function Form() {
+interface Props {
+  handleAddContact: (contact: Contact) => void;
+}
+
+export default function Form({ handleAddContact }: Props) {
   // create form with inputs for firstname, lastname, physical address, and delivery address
   // create a submit button
 
@@ -18,8 +24,13 @@ export default function Form() {
   };
 
   //   create a handler function to submit the form
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    // Use addContact to create a new contact
+    const contactData = await addContact(formState);
+    // Use handleAddContact to add the new contact to the contacts state variable
+    handleAddContact(contactData);
+    await getContacts();
     console.log(formState);
   };
 
