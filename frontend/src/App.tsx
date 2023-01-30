@@ -1,9 +1,17 @@
-import "./App.css";
+import ContactList from "./components/ContactList";
+import Form from "./components/Form";
+import { useState } from "react";
 
 function App() {
+  // create a state variable which stores contacts
+  const [contacts, setContacts] = useState([]);
+
+  
   return (
     <div>
       <h1>My Contacts</h1>
+      <Form />
+      <ContactList contacts={contacts} />
     </div>
   );
 }
