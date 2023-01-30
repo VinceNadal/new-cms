@@ -1,9 +1,11 @@
 import "./App.css";
 
 function App() {
-  return <div>
-    <h1>Contact Management System</h1>
-  </div>;
+  return (
+    <div>
+      <h1>My Contacts</h1>
+    </div>
+  );
 }
 
 export default App;
